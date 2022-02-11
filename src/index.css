@@ -1,13 +1,157 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body {
+  padding: 1rem;
+  background-color: #222;
+}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/********** app **********/
+.refresh {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 1rem;
+  background-color: #e6b12b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  transition: 0.2s;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.refresh:hover {
+  background-color: #cfa028;
+}
+
+/********** loading **********/
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(34, 34, 34, 0.842);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5rem;
+  height: 5rem;
+  border: 10px #555 solid;
+  border-top-color: #e6b12b;
+  border-radius: 50%;
+  box-shadow: 0 0 50px #000;
+  animation: loading 1s infinite linear;
+}
+
+/********** tours **********/
+.tours {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+/********** tour **********/
+.tour {
+  max-width: 30rem;
+  background-color: #444;
+  color: #fff;
+  border-radius: 6px;
+  box-shadow: 5px 5px 20px #111;
+  overflow: hidden;
+}
+
+.tour__image-box {
+  overflow: hidden;
+}
+.tour__image {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+  object-position: center top;
+  transition: 0.2s;
+}
+.tour__image:hover {
+  transform: scale(1.1);
+}
+.tour__footer {
+  padding: 1.5rem;
+}
+.tour__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tour__name {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.tour__price {
+  width: fit-content;
+  padding: 0.2rem 0.8rem;
+  background-color: #222;
+  color: #e6b12b;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.tour__info {
+  margin: 1rem 0;
+  color: #ccc;
+  text-align: justify;
+}
+.tour__read-more {
+  margin-left: 0.5rem;
+  background-color: transparent;
+  color: #7091fd;
+  border: none;
+  text-decoration: underline;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.tour__read-more:hover {
+  color: #506fd4;
+}
+.tour__delete {
+  display: block;
+  margin-right: 0;
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  background-color: #e92b5159;
+  color: #fff;
+  border: 1px #e92b51 solid;
+  border-radius: 3px;
+  text-transform: uppercase;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.tour__delete:hover {
+  background-color: #e92b51;
+}
+
+/********** key frames **********/
+@keyframes loading {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
