@@ -2,7 +2,7 @@
   <img src="./src/image/page.PNG" />
   <h1>Tour App</h1>
   <p>
-    A Tour application with ReactJs, in which you can delete the tour card which you are not interested in or refresh the page to see all the tours again.
+    A Tour app with ReactJs, in which you can delete the tour card which you are not interested in or refresh the page to see all the tours again.
   </p>
 </div>
 <div>
