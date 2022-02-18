@@ -1,41 +1,22 @@
-import React, { useEffect, useState } from "react";
-import Loading from "./Components/Loading";
+import React, { useContext } from "react";
 import Tours from "./Components/Tours";
-
-const url = "https://course-api.com/react-tours-project";
+import TourContext from "./Context/tour-context";
+import Loading from "./Components/Loading";
 
 const App = () => {
-  const [loading, setLoading] = useState(false);
-  const [tours, setTours] = useState([]);
-
-  const fetchTours = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(url);
-      const tours = await response.json();
-      setTours(tours);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-    }
-  };
-  useEffect(fetchTours, []);
-
-  const handleDelete = (id) => {
-    setTours(tours.filter((tour) => tour.id !== id));
-  };
-
+  const ctx = useContext(TourContext);
   return (
     <>
-      {loading && <Loading />}
+      {ctx.loading && <Loading />}
       <div className="app">
-        {tours.length > 0 ? (
-          <Tours tours={tours} onDelete={handleDelete} />
+        {ctx.tours.length > 0 ? (
+          <Tours onDelete={ctx.onDelete} />
         ) : (
-          <button className="refresh" onClick={fetchTours}>
-            refresh ↺
-          </button>
+          <div className="refresh">
+            <h1>There's nothing left to show.</h1>
+            <p>Refresh the page to see the tours again!</p>
+            <button onClick={ctx.onFetchData}>Refresh ↺</button>
+          </div>
         )}
       </div>
     </>

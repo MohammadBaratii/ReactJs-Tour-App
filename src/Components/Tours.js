@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import TourContext from "../Context/tour-context";
 import Tour from "./Tour";
 
-const Tours = (props) => {
+const Tours = () => {
+  const toursCtx = useContext(TourContext);
+
   return (
     <div className="tours">
-      {props.tours.map((tour) => {
-        return <Tour tour={tour} onDelete={props.onDelete} key={tour.id} />;
+      {toursCtx.tours.map((tour) => {
+        return <Tour tour={tour} key={tour.id} />;
       })}
     </div>
   );

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import TourContext from "../Context/tour-context";
 
 const Tour = (props) => {
   const [readMore, setReadMore] = useState(false);
+  const toursCtx = useContext(TourContext);
 
   const handleDelete = () => {
-    props.onDelete(props.tour.id);
+    toursCtx.onDelete(props.tour.id);
   };
 
   return (
@@ -29,7 +31,7 @@ const Tour = (props) => {
             className="tour__read-more"
             onClick={() => setReadMore(!readMore)}
           >
-            {readMore ? " read less" : "    read more"}
+            {readMore ? "read less" : "read more"}
           </button>
         </p>
 

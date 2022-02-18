@@ -1,3 +1,6 @@
+:root {
+  --yellow: #e6b12b;
+}
 * {
   margin: 0;
   padding: 0;
@@ -13,26 +16,6 @@ body {
   background-color: #222;
 }
 
-/********** app **********/
-.refresh {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 1rem;
-  background-color: #e6b12b;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  transform: translate(-50%, -50%);
-  transition: 0.2s;
-  font-size: 1.6rem;
-  font-weight: 500;
-  cursor: pointer;
-}
-.refresh:hover {
-  background-color: #cfa028;
-}
-
 /********** loading **********/
 .loading {
   position: fixed;
@@ -40,7 +23,7 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(34, 34, 34, 0.842);
+  background-color: #22222298;
   backdrop-filter: blur(5px);
   z-index: 1000;
 }
@@ -56,6 +39,41 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 50px #000;
   animation: loading 1s infinite linear;
+}
+
+/********** app **********/
+.refresh {
+  display: grid;
+  gap: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 85%;
+  color: #fff;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.refresh h1 {
+  font-weight: 500;
+}
+.refresh p {
+  color: #ccc;
+  font-size: 1.1rem;
+}
+.refresh button {
+  margin: auto;
+  padding: 0.7rem 1rem;
+  background-color: var(--yellow);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  transition: 0.2s;
+  font-size: 1.3rem;
+  outline: none;
+  cursor: pointer;
+}
+.refresh button:hover {
+  background-color: #cfa028;
 }
 
 /********** tours **********/
